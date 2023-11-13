@@ -1,0 +1,11 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}

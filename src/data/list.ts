@@ -1,4 +1,15 @@
-export const list = {
+export interface LocationItem {
+  name: string,
+  category: string,
+  coordinates: Array<number>
+}
+
+export const list: {
+  [key: string]: {
+    name: string,
+    locations: Array<LocationItem>
+  }
+} = {
   bars: {
     name: "Bars",
     locations: [
@@ -26,6 +37,11 @@ export const list = {
         name: "Beer Pong 5",
         category: "Beer and Soft 5",
         coordinates: [55.747050, 37.588689]
+      },
+      {
+        name: "Beer Pong 6",
+        category: "Beer and Soft 6",
+        coordinates: [55.147050, 37.583689]
       }
     ]
   },
@@ -56,6 +72,11 @@ export const list = {
         name: "Food Pong 5",
         category: "Food and Soft 5",
         coordinates: [55.734646, 37.504989]
+      },
+      {
+        name: "Food Pong 6",
+        category: "Food and Soft 6",
+        coordinates: [54.734646, 36.504989]
       }
     ]
   },
@@ -86,6 +107,11 @@ export const list = {
         name: "Clubs Pong 5",
         category: "Clubs and Soft 5",
         coordinates: [55.780366, 37.639319]
+      },
+      {
+        name: "Clubs Pong 6",
+        category: "Clubs and Soft 6",
+        coordinates: [55.180366, 37.439319]
       }
     ]
   },
@@ -116,6 +142,11 @@ export const list = {
         name: "Coffee Pong 5",
         category: "Coffee and Soft 5",
         coordinates: [55.801236, 37.697998]
+      },
+      {
+        name: "Coffee Pong 6",
+        category: "Coffee and Soft 6",
+        coordinates: [55.811236, 37.697928]
       }
     ]
   },
@@ -146,6 +177,11 @@ export const list = {
         name: "Beauty Pong 5",
         category: "Beauty and Soft 5",
         coordinates: [55.749944, 37.614745]
+      },
+      {
+        name: "Beauty Pong 6",
+        category: "Beauty and Soft 6",
+        coordinates: [55.741944, 37.624745]
       }
     ]
   }

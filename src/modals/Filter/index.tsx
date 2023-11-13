@@ -1,6 +1,7 @@
 import React from "react";
 
 import FilterSearch from "src/components/modals/filter/Search";
+import FilterList from "src/components/modals/filter/List";
 import Modal from "src/components/Modal";
 
 import { filterStore } from "src/store/filter";
@@ -75,6 +76,10 @@ export default function FilterModal() {
             );
           })}
         </div>
+        <FilterList
+          className={style.filter__list}
+          list={list["bars"].locations}
+        />
       </div>
     </Modal>
   );
