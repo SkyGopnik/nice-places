@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { modalStore } from "src/store/modal";
+import { mapStore } from "src/store/map";
 
 import classNames from "src/functions/classNames";
 
@@ -8,7 +9,6 @@ import BurgerIcon from "./icons/burger.svg";
 import NavigatorIcon from "./icons/navigator.svg";
 
 import style from "./index.module.scss";
-import { mapStore } from "src/store/map";
 
 export default function FloatButtons() {
 

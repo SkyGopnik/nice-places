@@ -3,9 +3,9 @@ import { Map as YandexMap, Placemark } from "@pbe/react-yandex-maps";
 
 import { modalStore } from "src/store/modal";
 import { filterStore } from "src/store/filter";
+import { mapStore } from "src/store/map";
 
 import { list, listKeys } from "src/data/list";
-import { mapStore } from "src/store/map";
 
 export default function Map() {
 
