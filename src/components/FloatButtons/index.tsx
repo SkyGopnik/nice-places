@@ -1,15 +1,19 @@
-import { filterModalStore } from "src/store/filterModal";
+import { useEffect, useRef, useState } from "react";
 
-import NavigatorIcon from "./icons/navigator.svg";
+import { modalStore } from "src/store/modal";
+import { floatButtonsStore } from "src/store/floatButtons";
+
+import classNames from "src/functions/classNames";
+
 import BurgerIcon from "./icons/burger.svg";
+import NavigatorIcon from "./icons/navigator.svg";
 
 import style from "./index.module.scss";
-import { useEffect, useRef, useState } from "react";
-import classNames from "src/functions/classNames";
 
 export default function FloatButtons() {
 
-  const { opened, position, openModal, closeModal } = filterModalStore();
+  const { activeModal, openModal, closeModal } = modalStore();
+  const { position } = floatButtonsStore();
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -37,6 +41,15 @@ export default function FloatButtons() {
     setOffset(-(position + 24));
   }, [position]);
 
+  const handleBurgerClick = () => {
+    if (activeModal === "FILTER") {
+      closeModal();
+      return;
+    }
+
+    openModal("FILTER");
+  };
+
   return (
     <div
       className={classNames(
@@ -54,7 +67,7 @@ export default function FloatButtons() {
       </div>
       <div
         className={style.buttons__item}
-        onClick={opened ? closeModal : openModal}
+        onClick={handleBurgerClick}
       >
         <img src={BurgerIcon} alt="burger icon" />
       </div>

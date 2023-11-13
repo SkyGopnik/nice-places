@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Map as YandexMap, Placemark } from "@pbe/react-yandex-maps";
 
-import { filterModalStore } from "src/store/filterModal";
+import { modalStore } from "src/store/modal";
 import { filterStore } from "src/store/filter";
 
 import { list, listKeys } from "src/data/list";
@@ -9,7 +9,7 @@ import { list, listKeys } from "src/data/list";
 export default function Map() {
 
   const { activeCategories } = filterStore();
-  const { setSnap } = filterModalStore();
+  const { setSnap } = modalStore();
 
   const [size, setSize] = useState({
     width: window.screen.width,
