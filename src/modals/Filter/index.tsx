@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import FilterSearch from "src/components/modals/filter/Search";
 import FilterList from "src/components/modals/filter/List";
@@ -9,7 +9,7 @@ import { modalStore } from "src/store/modal";
 
 import classNames from "src/functions/classNames";
 
-import { list, ListKeys, listKeys } from "src/data/list";
+import { list, ListKeys, listKeys, LocationItem } from "src/data/list";
 
 import style from "./index.module.scss";
 
@@ -28,6 +28,13 @@ export default function FilterModal() {
 
     setActiveCategories(activeCategories.filter((item) => item !== key));
   };
+
+  const filterList = useMemo(() => {
+    return activeCategories.reduce(
+      (previousValue, key) => [...previousValue, ...list[key].locations],
+      [] as Array<LocationItem>
+    );
+  }, [activeCategories]);
 
   return (
     <Modal snapPoints={[510, 160]} opened={activeModal === "FILTER"}>
@@ -78,7 +85,7 @@ export default function FilterModal() {
         </div>
         <FilterList
           className={style.filter__list}
-          list={list["bars"].locations}
+          list={filterList}
         />
       </div>
     </Modal>
