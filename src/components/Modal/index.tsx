@@ -18,7 +18,7 @@ interface Props {
 
 export default function Modal({ snapPoints, children, opened }: Props) {
 
-  const { snap, closeModal } = modalStore();
+  const { snap, setSnap, closeModal } = modalStore();
   const { setPosition } = floatButtonsStore();
 
   const filterRef = useRef<SheetRef>();
@@ -38,7 +38,12 @@ export default function Modal({ snapPoints, children, opened }: Props) {
       return;
     }
 
+    setSnap(null);
     setPosition(snapPoints[index]);
+  };
+
+  const onClose = () => {
+    setTimeout(() => setPosition(null));
   };
 
   return (
@@ -49,7 +54,7 @@ export default function Modal({ snapPoints, children, opened }: Props) {
       initialSnap={snapPoints.length - 1}
       snapPoints={snapPoints}
       tweenConfig={{ ease: 'easeOut', duration: 0.3 }}
-      onCloseStart={() => setTimeout(() => setPosition(null))}
+      onCloseStart={onClose}
       onSnap={onSnap}
       onClose={closeModal}
     >

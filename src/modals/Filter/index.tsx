@@ -14,8 +14,8 @@ import style from "./index.module.scss";
 
 export default function FilterModal() {
 
-  const { activeCategories, setActiveCategories } = filterStore();
   const { activeModal, setSnap } = modalStore();
+  const { activeCategories, setActiveCategories } = filterStore();
 
   const handleCategoryClick = (key: ListKeys) => () =>  {
     const checkActive = activeCategories.includes(key);
