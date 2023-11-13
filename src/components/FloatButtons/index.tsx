@@ -8,10 +8,12 @@ import BurgerIcon from "./icons/burger.svg";
 import NavigatorIcon from "./icons/navigator.svg";
 
 import style from "./index.module.scss";
+import { mapStore } from "src/store/map";
 
 export default function FloatButtons() {
 
   const { activeModal, height, openModal, closeModal } = modalStore();
+  const { setState } = mapStore();
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -48,6 +50,13 @@ export default function FloatButtons() {
     openModal("FILTER");
   };
 
+  const handleNavigationClick = () => {
+    setState({
+      center: [55.751444, 37.618897],
+      zoom: 12
+    });
+  };
+
   return (
     <div
       className={classNames(
@@ -60,7 +69,10 @@ export default function FloatButtons() {
         transform: `translateY(${offset}px)`
       }}
     >
-      <div className={style.buttons__item}>
+      <div
+        className={style.buttons__item}
+        onClick={handleNavigationClick}
+      >
         <img src={NavigatorIcon} alt="navigator icon" />
       </div>
       <div

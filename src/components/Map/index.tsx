@@ -5,23 +5,17 @@ import { modalStore } from "src/store/modal";
 import { filterStore } from "src/store/filter";
 
 import { list, listKeys } from "src/data/list";
+import { mapStore } from "src/store/map";
 
 export default function Map() {
 
   const { activeCategories } = filterStore();
+  const { state } = mapStore();
   const { setSnap } = modalStore();
 
   const [size, setSize] = useState({
     width: window.screen.width,
     height: window.screen.height
-  });
-
-  const [state, setState] = useState<{
-    center: Array<number>,
-    zoom: number
-  }>({
-    center: [55.752591, 37.626813],
-    zoom: 12
   });
 
   const minimizeFilter = () => setSnap(1);
