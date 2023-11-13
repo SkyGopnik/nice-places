@@ -1,15 +1,49 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Map as YandexMap, Placemark } from "@pbe/react-yandex-maps";
-import { list, listKeys } from "src/data/list";
+
 import { filterModalStore } from "src/store/filterModal";
 import { filterStore } from "src/store/filter";
+
+import { list, listKeys } from "src/data/list";
 
 export default function Map() {
 
   const { activeCategories } = filterStore();
   const { setSnap } = filterModalStore();
 
+  const [size, setSize] = useState({
+    width: window.screen.width,
+    height: window.screen.height
+  });
+
+  const [state, setState] = useState<{
+    center: Array<number>,
+    zoom: number
+  }>({
+    center: [55.752591, 37.626813],
+    zoom: 12
+  });
+
   const minimizeFilter = () => setSnap(1);
+
+  // useEffect(() => {
+  //   setTimeout(() => setState({
+  //   //   center: [55.763746, 37.691800],
+  //   //   zoom: 15
+  //   // }), 2000);
+  // }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleResize = () => {
+    setSize({
+      width: window.screen.width,
+      height: window.screen.height
+    });
+  };
 
   const placeMarks = useMemo(() => listKeys.map((key) => {
     const item = list[key];
@@ -34,9 +68,9 @@ export default function Map() {
 
   return (
     <YandexMap
-      width={window.screen.width}
-      height={window.screen.height}
-      defaultState={{ center: [55.752591, 37.626813], zoom: 12 }}
+      width={size.width}
+      height={size.height}
+      state={state}
       onMouseDown={minimizeFilter}
       onClick={minimizeFilter}
     >
