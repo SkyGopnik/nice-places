@@ -4,7 +4,6 @@ import React, { ReactNode, useEffect, useRef } from "react";
 import BottomSheet from "src/components/BottomSheet";
 
 import { modalStore } from "src/store/modal";
-import { floatButtonsStore } from "src/store/floatButtons";
 
 import { useFirstRender } from "src/hooks/useFirstRender";
 
@@ -18,8 +17,7 @@ interface Props {
 
 export default function Modal({ snapPoints, children, opened }: Props) {
 
-  const { snap, setSnap, closeModal } = modalStore();
-  const { setPosition } = floatButtonsStore();
+  const { snap, setHeight, setSnap, closeModal } = modalStore();
 
   const filterRef = useRef<SheetRef>();
   const firstRender = useFirstRender();
@@ -39,11 +37,11 @@ export default function Modal({ snapPoints, children, opened }: Props) {
     }
 
     setSnap(null);
-    setPosition(snapPoints[index]);
+    setHeight(snapPoints[index]);
   };
 
   const onClose = () => {
-    setTimeout(() => setPosition(null));
+    setTimeout(() => setHeight(null));
   };
 
   return (
@@ -53,7 +51,6 @@ export default function Modal({ snapPoints, children, opened }: Props) {
       isOpen={opened}
       initialSnap={snapPoints.length - 1}
       snapPoints={snapPoints}
-      tweenConfig={{ ease: 'easeOut', duration: 0.3 }}
       onCloseStart={onClose}
       onSnap={onSnap}
       onClose={closeModal}

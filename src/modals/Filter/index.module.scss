@@ -8,6 +8,32 @@ $padding: 24px;
 
   &__search {
     padding: 0 $padding;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &Cancel {
+      font-family: Manrope, sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 84.164%; /* 11.783px */
+
+      outline: none;
+      border: none;
+
+      cursor: pointer;
+
+      transition: opacity .3s ease;
+
+      color: #555353;
+      background: transparent;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
   }
 
   &__categories {

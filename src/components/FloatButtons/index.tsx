@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
 import { modalStore } from "src/store/modal";
-import { floatButtonsStore } from "src/store/floatButtons";
 
 import classNames from "src/functions/classNames";
 
@@ -12,8 +11,7 @@ import style from "./index.module.scss";
 
 export default function FloatButtons() {
 
-  const { activeModal, openModal, closeModal } = modalStore();
-  const { position } = floatButtonsStore();
+  const { activeModal, height, openModal, closeModal } = modalStore();
 
   const ref = useRef<HTMLDivElement>(null);
 
@@ -29,17 +27,17 @@ export default function FloatButtons() {
     const buttonsHeight = ref.current.clientHeight;
 
     // Position to center
-    if (position === null) {
+    if (height === null) {
       setOffset(-(screenHeight / 2 - buttonsHeight / 2));
       return;
     }
 
     // Check if float buttons outside viewport
-    setHidden(position + buttonsHeight > screenHeight);
+    setHidden(height + buttonsHeight > screenHeight);
 
     // Position to top of modal
-    setOffset(-(position + 24));
-  }, [position]);
+    setOffset(-(height + 24));
+  }, [height]);
 
   const handleBurgerClick = () => {
     if (activeModal === "FILTER") {

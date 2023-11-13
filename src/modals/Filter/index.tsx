@@ -14,7 +14,7 @@ import style from "./index.module.scss";
 
 export default function FilterModal() {
 
-  const { activeModal, setSnap } = modalStore();
+  const { activeModal, height, setSnap, closeModal } = modalStore();
   const { activeCategories, setActiveCategories } = filterStore();
 
   const handleCategoryClick = (key: ListKeys) => () =>  {
@@ -31,12 +31,21 @@ export default function FilterModal() {
   return (
     <Modal snapPoints={[510, 160]} opened={activeModal === "FILTER"}>
       <div className={style.filter}>
-        <FilterSearch
-          className={style.filter__search}
-          type="text"
-          placeholder="search for nice places..."
-          onClick={() => setSnap(0)}
-        />
+        <div className={style.filter__search}>
+          <FilterSearch
+            type="text"
+            placeholder="search for nice places..."
+            onClick={() => setSnap(0)}
+          />
+          {height && (height > 160) && (
+            <button
+              className={style.filter__searchCancel}
+              onClick={closeModal}
+            >
+              Cancel
+            </button>
+          )}
+        </div>
         <div className={style.filter__categories}>
           {listKeys.map((key) => {
             const item = list[key];
