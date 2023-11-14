@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.6f96239d.css",
-    "main.js": "/static/js/main.f91ac7ee.js",
-    "static/media/image-3.jpg": "/static/media/image-3.da69387d9a8603523513.jpg",
-    "static/media/image-2.jpg": "/static/media/image-2.0412afb0f249469d005f.jpg",
-    "static/media/image-1.jpg": "/static/media/image-1.fa8d1e5c6c8e33498e55.jpg",
-    "static/media/clubs.svg": "/static/media/clubs.e9ecd11a09741a5600cb.svg",
-    "static/media/bars.svg": "/static/media/bars.9bb5117fa734db557053.svg",
-    "static/media/beauty.svg": "/static/media/beauty.869916217df94a18527e.svg",
-    "static/media/food.svg": "/static/media/food.03c262f5b76d74e6333a.svg",
-    "static/media/coffee.svg": "/static/media/coffee.fe2451dd5c5462525b3b.svg",
-    "static/media/menu.svg": "/static/media/menu.050412b538bf66116f63f16c062a9ce7.svg",
-    "static/media/share.svg": "/static/media/share.e9c34a474cb4865a829640625c575e7e.svg",
-    "static/media/like.svg": "/static/media/like.eaeae16f5a24962717abe3f7f71e8e05.svg",
-    "static/media/search.svg": "/static/media/search.61fadea0a60413be4e2d5a617731ac1e.svg",
-    "static/media/navigator.svg": "/static/media/navigator.ee408cfb1e3c55a7f051e96e95d65c66.svg",
-    "static/media/chevron.svg": "/static/media/chevron.932845d47d69a634043403ee40325d3b.svg",
-    "static/media/burger.svg": "/static/media/burger.dc4b1340f547a99541449aec18e90594.svg",
-    "index.html": "/index.html",
-    "main.6f96239d.css.map": "/static/css/main.6f96239d.css.map",
-    "main.f91ac7ee.js.map": "/static/js/main.f91ac7ee.js.map"
+    "main.css": "/nice-places/static/css/main.6f96239d.css",
+    "main.js": "/nice-places/static/js/main.c2d45004.js",
+    "static/media/image-3.jpg": "/nice-places/static/media/image-3.da69387d9a8603523513.jpg",
+    "static/media/image-2.jpg": "/nice-places/static/media/image-2.0412afb0f249469d005f.jpg",
+    "static/media/image-1.jpg": "/nice-places/static/media/image-1.fa8d1e5c6c8e33498e55.jpg",
+    "static/media/clubs.svg": "/nice-places/static/media/clubs.e9ecd11a09741a5600cb.svg",
+    "static/media/bars.svg": "/nice-places/static/media/bars.9bb5117fa734db557053.svg",
+    "static/media/beauty.svg": "/nice-places/static/media/beauty.869916217df94a18527e.svg",
+    "static/media/food.svg": "/nice-places/static/media/food.03c262f5b76d74e6333a.svg",
+    "static/media/coffee.svg": "/nice-places/static/media/coffee.fe2451dd5c5462525b3b.svg",
+    "static/media/menu.svg": "/nice-places/static/media/menu.050412b538bf66116f63f16c062a9ce7.svg",
+    "static/media/share.svg": "/nice-places/static/media/share.e9c34a474cb4865a829640625c575e7e.svg",
+    "static/media/like.svg": "/nice-places/static/media/like.eaeae16f5a24962717abe3f7f71e8e05.svg",
+    "static/media/search.svg": "/nice-places/static/media/search.61fadea0a60413be4e2d5a617731ac1e.svg",
+    "static/media/navigator.svg": "/nice-places/static/media/navigator.ee408cfb1e3c55a7f051e96e95d65c66.svg",
+    "static/media/chevron.svg": "/nice-places/static/media/chevron.932845d47d69a634043403ee40325d3b.svg",
+    "static/media/burger.svg": "/nice-places/static/media/burger.dc4b1340f547a99541449aec18e90594.svg",
+    "index.html": "/nice-places/index.html",
+    "main.6f96239d.css.map": "/nice-places/static/css/main.6f96239d.css.map",
+    "main.c2d45004.js.map": "/nice-places/static/js/main.c2d45004.js.map"
   },
   "entrypoints": [
     "static/css/main.6f96239d.css",
-    "static/js/main.f91ac7ee.js"
+    "static/js/main.c2d45004.js"
   ]
 }
