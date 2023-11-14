@@ -5,8 +5,9 @@ import { modalStore } from "src/store/modal";
 import { filterStore } from "src/store/filter";
 import { mapStore } from "src/store/map";
 
-import { list, listKeys, LocationItem } from "src/data/list";
 import arraysEqual from "src/functions/arrayEqual";
+
+import { list, listKeys, LocationItem } from "src/data/list";
 
 export default function Map() {
 
@@ -27,7 +28,6 @@ export default function Map() {
 
     if (activeModal === "ITEM") {
       setSnap(2);
-      return;
     }
   };
 
