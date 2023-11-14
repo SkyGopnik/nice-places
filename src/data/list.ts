@@ -14,8 +14,8 @@ export const list: {
     name: "Bars",
     locations: [
       {
-        name: "Beer Pong 1",
-        category: "Beer and Soft 1",
+        name: "Very long very long very long Beer Pong 1",
+        category: "Very long very long very long Beer and Soft 1",
         coordinates: [55.771783, 37.619508]
       },
       {
@@ -44,8 +44,8 @@ export const list: {
     name: "Food",
     locations: [
       {
-        name: "Food Pong 1",
-        category: "Food and Soft 1",
+        name: "Very long very long very long Food Pong 1",
+        category: "Very long very long very long Food and Soft 1",
         coordinates: [55.795656, 37.581211]
       },
       {
@@ -74,8 +74,8 @@ export const list: {
     name: "Clubs",
     locations: [
       {
-        name: "Clubs Pong 1",
-        category: "Clubs and Soft 1",
+        name: "Very long very long very long Clubs Pong 1",
+        category: "Very long very long very long Clubs and Soft 1",
         coordinates: [55.836393, 37.604763]
       },
       {
@@ -104,8 +104,8 @@ export const list: {
     name: "Coffee",
     locations: [
       {
-        name: "Coffee Pong 1",
-        category: "Coffee and Soft 1",
+        name: "Very long very long very long Coffee Pong 1",
+        category: "Very long very long very long Coffee and Soft 1",
         coordinates: [55.842303, 37.694731]
       },
       {
@@ -134,8 +134,8 @@ export const list: {
     name: "Beauty",
     locations: [
       {
-        name: "Beauty Pong 1",
-        category: "Beauty and Soft 1",
+        name: "Very long very long very long Beauty Pong 1",
+        category: "Very long very long very long Beauty and Soft 1",
         coordinates: [55.756652, 37.636390]
       },
       {
