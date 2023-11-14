@@ -4,6 +4,7 @@ import ListItem from "./Item";
 
 import { mapStore } from "src/store/map";
 import { modalStore } from "src/store/modal";
+import { filterStore } from "src/store/filter";
 
 import classNames from "src/functions/classNames";
 
@@ -18,16 +19,17 @@ interface Props extends DivProps {
 
 export default function FilterList({ list, ...props }: Props) {
 
-  const { closeModal } = modalStore();
+  const { openModal } = modalStore();
+  const { setActiveItem } = filterStore();
   const { setState } = mapStore();
 
-  const centerLocation = (item: LocationItem) => () => {
+  const openLocation = (item: LocationItem) => () => {
+    openModal("ITEM");
+    setActiveItem(item);
     setState({
       center: item.coordinates,
       zoom: 15
     });
-
-    closeModal();
   };
 
   return (
@@ -44,7 +46,7 @@ export default function FilterList({ list, ...props }: Props) {
             name={item.name}
             category={item.category}
             till={`1${index}:00PM`}
-            onClick={centerLocation(item)}
+            onClick={openLocation(item)}
           />
         ))
       ) : (

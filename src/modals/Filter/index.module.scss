@@ -44,6 +44,7 @@ $padding: 24px;
     gap: 16px;
 
     overflow-x: auto;
+    overflow-y: hidden;
 
     &::-webkit-scrollbar {
       width: 0;

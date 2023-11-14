@@ -5,27 +5,31 @@ import { modalStore } from "src/store/modal";
 import { filterStore } from "src/store/filter";
 import { mapStore } from "src/store/map";
 
-import { list, listKeys } from "src/data/list";
+import { list, listKeys, LocationItem } from "src/data/list";
+import arraysEqual from "src/functions/arrayEqual";
 
 export default function Map() {
 
-  const { activeCategories } = filterStore();
-  const { state } = mapStore();
-  const { setSnap } = modalStore();
+  const { activeModal, openModal, setSnap } = modalStore();
+  const { state, setState } = mapStore();
+  const { activeCategories, activeItem, setActiveItem } = filterStore();
 
   const [size, setSize] = useState({
     width: window.screen.width,
     height: window.screen.height
   });
 
-  const minimizeFilter = () => setSnap(1);
+  const minimizeFilter = () => {
+    if (activeModal === "FILTER") {
+      setSnap(1);
+      return;
+    }
 
-  // useEffect(() => {
-  //   setTimeout(() => setState({
-  //   //   center: [55.763746, 37.691800],
-  //   //   zoom: 15
-  //   // }), 2000);
-  // }, []);
+    if (activeModal === "ITEM") {
+      setSnap(2);
+      return;
+    }
+  };
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
@@ -36,6 +40,15 @@ export default function Map() {
     setSize({
       width: window.screen.width,
       height: window.screen.height
+    });
+  };
+
+  const openLocation = (item: LocationItem) => () => {
+    openModal("ITEM");
+    setActiveItem(item);
+    setState({
+      center: item.coordinates,
+      zoom: 15
     });
   };
 
@@ -50,15 +63,22 @@ export default function Map() {
       <Placemark
         key={key + location.name}
         geometry={location.coordinates}
-        options={{
-          iconLayout: "default#image",
-          iconImageHref: require(`./icons/dots/${key}.svg`),
-          iconImageSize: [12, 12]
-        }}
-        onClick={() => console.log(key, location.name)}
+        options={
+          // Поиск просто по координатам, если бы данные были от бэка, было бы по ID
+          activeItem && arraysEqual(location.coordinates, activeItem.coordinates) ? {
+            iconLayout: "default#image",
+            iconImageHref: require(`./icons/markers/${key}.svg`),
+            iconImageSize: [31, 45]
+          } : {
+            iconLayout: "default#image",
+            iconImageHref: require(`./icons/dots/${key}.svg`),
+            iconImageSize: [12, 12]
+          }
+        }
+        onClick={openLocation(location)}
       />
     ));
-  }), [activeCategories]);
+  }), [activeCategories, activeItem]);
 
   return (
     <YandexMap

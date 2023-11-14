@@ -1,7 +1,10 @@
 import React from 'react';
+
 import Map from "src/components/Map";
-import FilterModal from "src/modals/Filter";
 import FloatButtons from "src/components/FloatButtons";
+
+import FilterModal from "src/modals/Filter";
+import ItemModal from "src/modals/Item";
 
 export default function App() {
   return (
@@ -10,6 +13,7 @@ export default function App() {
       <FloatButtons />
 
       <FilterModal />
+      <ItemModal />
     </>
   );
 }

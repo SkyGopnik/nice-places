@@ -1,1 +1,1 @@
-export type Modal = "FILTER";
+export type Modal = "FILTER" | "ITEM";
