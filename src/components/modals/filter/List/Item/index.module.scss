@@ -1,7 +1,6 @@
 .item {
   display: flex;
   flex-direction: column;
-  gap: 8px;
 
   cursor: pointer;
 
@@ -16,7 +15,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 84.164%; /* 13.466px */
+    line-height: 22px; /* 13.466px */
 
     white-space: nowrap;
     overflow: hidden;
@@ -36,7 +35,7 @@
         font-size: 12px;
         font-style: normal;
         font-weight: 400;
-        line-height: 84.164%; /* 10.1px */
+        line-height: 15px; /* 10.1px */
 
         white-space: nowrap;
         overflow: hidden;

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 
 import FilterSearch from "src/components/modals/filter/Search";
 import FilterList from "src/components/modals/filter/List";
@@ -17,6 +17,8 @@ export default function FilterModal() {
 
   const { activeModal, height, setSnap, closeModal } = modalStore();
   const { activeCategories, setActiveCategories } = filterStore();
+
+  const [search, setSearch] = useState("");
 
   const handleCategoryClick = (key: ListKeys) => () =>  {
     const checkActive = activeCategories.includes(key);
@@ -41,9 +43,11 @@ export default function FilterModal() {
       <div className={style.filter}>
         <div className={style.filter__search}>
           <FilterSearch
+            value={search}
             type="text"
             placeholder="search for nice places..."
             onClick={() => setSnap(0)}
+            onChange={(e) => setSearch(e.currentTarget.value)}
           />
           {height && (height > 160) && (
             <button
@@ -85,7 +89,7 @@ export default function FilterModal() {
         </div>
         <FilterList
           className={style.filter__list}
-          list={filterList}
+          list={filterList.filter((item) => item.name.indexOf(search) !== -1)}
         />
       </div>
     </Modal>
